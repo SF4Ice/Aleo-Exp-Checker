@@ -14,3 +14,28 @@ CHAT_ID = "-1703"
 ADDRESSES = {
     "num1-serv1": "aleo...address1",
     "num2-serv2": "aleo...address2",
+
+    
+}
+
+def send_tg_msg(value: str):
+
+    try:
+
+        requests.post(
+
+            f"https://api.telegram.org/bot{API_TOKEN}/sendMessage",
+
+            json={
+
+                'chat_id': CHAT_ID,
+
+                'text': value
+
+            }
+
+        )
+
+    except Exception as e:
+
+        print(e.args)
